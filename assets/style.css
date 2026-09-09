@@ -1,0 +1,387 @@
+/* Vika Plamadeala — DevOps portfolio
+   Palette / type system pulled from the design canvas draft. */
+
+:root {
+  --accent: #b5502e;
+  --bg: #f3ead9;
+  --surface: #fbf7ee;
+  --border: #e3d7bf;
+  --ink: #2a241c;
+  --ink-2: #443c30;
+  --ink-3: #5b5142;
+  --ink-4: #8a7d64;
+  --line: #8a7d64;
+  --dark: #211c15;
+  --dark-border: #4a4235;
+  --cream-text: #f3ead9;
+  --cream-text-2: #c9bb9c;
+  --font-serif: 'Newsreader', serif;
+  --font-sans: 'Work Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+
+a { text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink-3);
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.tag-accent { color: var(--accent); border-color: var(--accent); }
+
+.tag-secondary { color: #7a4a2c; border-color: #c98a56; background: #f6e8d6; }
+
+.btn {
+  display: inline-block;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 26px;
+  text-align: center;
+}
+
+.btn-primary { background: var(--accent); color: #fbf3e6; }
+.btn-secondary { border: 1px solid #d9caa9; color: var(--ink); }
+.btn-dark-outline { border: 1px solid var(--dark-border); color: var(--cream-text); }
+
+/* ---------- NAV ---------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 48px 0 48px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.nav-logo { font-family: var(--font-serif); font-size: 19px; font-weight: 600; }
+
+.nav-links { display: flex; align-items: center; gap: 36px; font-size: 14px; color: var(--ink-3); }
+
+.nav-links a:not(.btn) { color: var(--ink-3); }
+
+.nav-cta { background: var(--accent); color: #fbf3e6; padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; }
+
+/* ---------- HERO ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: center;
+  padding: 64px 48px 40px 48px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 58px;
+  line-height: 1.05;
+  margin: 14px 0 0 0;
+  color: var(--dark);
+}
+
+.hero h1 em { font-style: italic; font-weight: 400; }
+
+.hero-keywords {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  margin-top: 14px;
+}
+
+.hero-intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 480px;
+  margin: 16px 0 0 0;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-actions .linkedin { color: var(--ink-3); font-size: 14px; border-bottom: 1px solid #c9bb9c; padding-bottom: 2px; }
+
+.hero-photo-frame {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-photo {
+  width: 360px;
+  height: 440px;
+  border-radius: 200px 200px 28px 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -20px rgba(60, 45, 20, 0.35);
+  border: 1px solid var(--border);
+}
+
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+/* ---------- SECTION HEADERS ---------- */
+
+section { padding: 80px 48px 20px 48px; max-width: var(--max); margin: 0 auto; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 34px;
+  margin: 0;
+  color: var(--dark);
+}
+
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-4);
+  text-transform: uppercase;
+}
+
+/* ---------- WORK CARDS ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 44px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card:last-child { margin-bottom: 0; }
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.card-metric { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--accent); }
+
+.card h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 27px;
+  margin: 0;
+  color: var(--dark);
+}
+
+.card p { font-size: 16px; line-height: 1.7; color: var(--ink-2); margin: 0; }
+
+.card figure { margin: 6px 0 0 0; }
+
+.card figure svg { width: 100%; height: auto; max-width: 620px; display: block; margin: 0 auto; }
+
+figcaption {
+  font-size: 12px;
+  color: var(--ink-4);
+  text-align: center;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.card-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+
+/* ---------- SKILLS ---------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.skills-col { display: flex; flex-direction: column; gap: 12px; }
+
+.skills-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.skills-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- EXPERIENCE ---------- */
+
+.exp-list { display: flex; flex-direction: column; gap: 32px; }
+
+.exp-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.exp-role { font-weight: 600; font-size: 16px; color: var(--dark); }
+.exp-company { font-size: 14px; color: var(--ink-3); }
+.exp-dates { font-family: var(--font-mono); font-size: 12px; color: var(--ink-4); margin-top: 4px; }
+.exp-row p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin: 0; }
+
+/* ---------- CERTS ---------- */
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+
+.cert-code { font-family: var(--font-mono); font-weight: 600; font-size: 13px; color: var(--accent); }
+.cert-name { font-size: 14px; margin-top: 6px; color: var(--dark); }
+.cert-meta { font-size: 12px; color: var(--ink-4); margin-top: 4px; }
+.cert-note { font-size: 11.5px; color: var(--ink-4); margin-top: 8px; font-style: italic; line-height: 1.4; }
+
+/* ---------- BEYOND ---------- */
+
+.beyond {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.beyond-label { font-family: var(--font-serif); font-style: italic; font-size: 20px; white-space: nowrap; color: var(--dark); }
+.beyond p { font-size: 15px; line-height: 1.7; color: var(--ink-3); margin: 0; }
+
+/* ---------- CONTACT ---------- */
+
+.contact-card {
+  background: var(--dark);
+  border-radius: 24px;
+  padding: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.contact-card h2 { font-style: italic; font-size: 30px; color: var(--cream-text); margin: 0 0 10px 0; }
+.contact-card .contact-email { font-size: 15px; color: var(--cream-text-2); margin: 0; }
+.contact-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+footer { padding: 40px 48px 56px 48px; max-width: var(--max); margin: 0 auto; }
+
+/* ============================================================
+   MOBILE — collapses the desktop layout below 768px, matching
+   the stacked, single-column treatment from the design canvas.
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .wrap, .nav, section, footer { padding-left: 20px; padding-right: 20px; }
+
+  .nav { padding-top: 20px; }
+  .nav-links > a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 8px 16px; font-size: 12px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 32px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+  .hero-photo-frame { order: -1; }
+  .hero-photo { width: 220px; height: 270px; border-radius: 120px 120px 20px 20px; margin: 0 auto; }
+  .hero-eyebrow { text-align: center; font-size: 11px; }
+  .hero h1 { font-size: 36px; text-align: center; margin-top: 12px; }
+  .hero-keywords { text-align: center; font-size: 11px; }
+  .hero-intro { font-size: 15px; max-width: none; margin: 0 auto; text-align: center; }
+  .hero-actions { flex-direction: column; align-items: stretch; margin-top: 12px; }
+  .hero-actions .btn { width: 100%; padding: 13px 0; }
+  .hero-actions .linkedin { text-align: center; margin-top: 4px; }
+
+  section { padding: 52px 20px 8px 20px; }
+  h2 { font-size: 24px; }
+  .section-head { margin-bottom: 20px; }
+
+  .card { padding: 24px; border-radius: 18px; }
+  .card h3 { font-size: 20px; }
+  .card p { font-size: 14px; }
+
+  .skills-grid { grid-template-columns: 1fr; gap: 18px; }
+
+  .exp-row { grid-template-columns: 1fr; gap: 6px; padding-top: 16px; }
+  .exp-row p { font-size: 14px; margin-top: 4px; }
+
+  .certs-grid { grid-template-columns: 1fr; gap: 10px; }
+  .cert-card { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 14px 16px; border-radius: 12px; }
+  .cert-card.has-note { flex-direction: column; align-items: stretch; gap: 8px; }
+  .cert-card.has-note .cert-card-top { display: flex; justify-content: space-between; align-items: center; }
+
+  .beyond { flex-direction: column; gap: 10px; padding: 20px 0; }
+  .beyond-label { font-size: 17px; white-space: normal; }
+  .beyond p { font-size: 14px; }
+
+  .contact-card { flex-direction: column; text-align: center; padding: 32px 24px; border-radius: 20px; }
+  .contact-actions { flex-direction: column; width: 100%; }
+  .contact-actions .btn { width: 100%; }
+
+  footer { padding: 40px 20px 48px 20px; }
+}
