@@ -78,10 +78,10 @@ story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#e3d7b
 
 story.append(Paragraph("SUMMARY", section_style))
 story.append(Paragraph(
-    "DevOps Engineer with 4+ years running production Kubernetes for an 18-microservice, "
-    "consumer-facing booking platform on AWS. Cut incident resolution time from 50 to 18 minutes "
-    "through symptom-based alerting. Built AI-assisted automation spanning PR review across 30 "
-    "repositories and a policy-gated EKS remediation pipeline.",
+    "DevOps Engineer with 5+ years of experience running cloud infrastructure and production "
+    "Kubernetes for consumer-facing applications on AWS. Cut incident resolution time from 50 to "
+    "18 minutes through symptom-based alerting. Built AI-assisted automation spanning PR review "
+    "across 30 repositories and a policy-gated EKS remediation pipeline.",
     body_style
 ))
 
@@ -90,25 +90,24 @@ story.append(Paragraph("EXPERIENCE", section_style))
 story.append(Paragraph("DevOps Engineer &nbsp;|&nbsp; Hyatt Hotels Corporation &nbsp;|&nbsp; Remote", role_style))
 story.append(Paragraph("Jan 2024 — Present", company_style))
 hyatt_bullets = [
-    "Scaled EKS infrastructure for a consumer-facing booking platform from 8 to 24 nodes (250 to 600 pods) during peak promotions while holding sub-second API latency.",
+    "Scaled EKS infrastructure from 250 to 600 pods (8 to 24 nodes) during peak promotions with zero manual intervention, holding sub-second API latency throughout.",
+    "Redesigned Prometheus and CloudWatch alerting around customer-facing symptoms and service-specific runbooks, cutting incident resolution time from 50 to 18 minutes (-64%).",
+    "Introduced a Claude Code PR-review agent across 30 repositories that validates Jira requirements and flags exposed secrets before merge, giving every repo automated first-pass review coverage without a platform engineer manually maintaining it.",
+    "Personal project: engineered an AI-assisted EKS remediation pipeline (EventBridge, Lambda, Terraform) that diagnoses CloudWatch/Prometheus alerts and, for a narrow policy-gated allow-list, triggers recovery actions like pod restarts and capped node scaling; validated end-to-end against real alarm fixtures, not yet deployed to a live cluster.",
     "Standardized GitOps delivery for 18 microservices with GitHub Actions and ArgoCD, automating builds, security checks, Helm deployments, and canary/blue-green releases.",
     "Replaced all-at-once Lambda releases with gated canary deployments using CodeDeploy and CloudWatch, automatically rolling back releases when error rates increased.",
-    "Reduced incident resolution time from 50 to 18 minutes by redesigning Prometheus and CloudWatch alerts around customer-facing symptoms and linking them to service-specific runbooks.",
-    "Automated container vulnerability response with Amazon Inspector, EventBridge, and Lambda, routing Critical/High findings directly to Slack for developer response.",
-    "Automated PR review across 30 repositories with a Claude Code agent that validates Jira requirements and detects exposed secrets before merge, flagging issues for developer review.",
-    "Personal project: built a policy-gated EKS remediation pipeline (EventBridge, Lambda) that diagnoses CloudWatch alarm incidents and, for a narrow allow-listed set of failure types, automatically restarts the affected workload or scales the node group; validated end-to-end against real alarm fixtures.",
 ]
 for b in hyatt_bullets:
     story.append(Paragraph(f"–&nbsp; {b}", bullet_style))
 
 story.append(Spacer(1, 3))
 story.append(Paragraph("Cloud Engineer &nbsp;|&nbsp; HelloFresh &nbsp;|&nbsp; Remote", role_style))
-story.append(Paragraph("May 2022 — Jan 2024", company_style))
+story.append(Paragraph("May 2021 — Jan 2024", company_style))
 hellofresh_bullets = [
-    "Standardized infrastructure across 10 AWS environments by developing reusable Terraform and CloudFormation modules for repeatable provisioning and configuration.",
-    "Hardened AWS access for 25 developers by implementing least-privilege IAM policies scoped to role-specific responsibilities.",
-    "Implemented AWS VPC networking across subnets, NACLs, and bastion hosts for isolated, secure cross-environment access.",
-    "Automated dev/staging resource scheduling to eliminate idle non-production spend.",
+    "Standardized infrastructure provisioning across 10 AWS environments with reusable Terraform and CloudFormation modules, replacing manual console setup and cutting the “works in staging, breaks in prod” drift that came with it.",
+    "Locked down cross-environment access for 25 developers with least-privilege IAM and VPC-segmented networking (subnets, NACLs, bastion hosts), shrinking the blast radius of any compromised credential.",
+    "Supported migration of interruption-tolerant workloads to EC2 Spot Instances as part of a broader cost optimization effort, cutting compute spend while keeping critical workloads on stable capacity.",
+    "Scheduled non-production resources to shut down outside business hours, eliminating idle overnight and weekend compute spend.",
 ]
 for b in hellofresh_bullets:
     story.append(Paragraph(f"–&nbsp; {b}", bullet_style))
@@ -117,10 +116,10 @@ story.append(Paragraph("SKILLS", section_style))
 skills_data = [
     ["Cloud & Infrastructure:", "AWS, EKS, Lambda, EventBridge, VPC, IAM, Terraform, CloudFormation"],
     ["Kubernetes & GitOps:", "Kubernetes, ArgoCD, Helm, Docker"],
-    ["CI/CD & Delivery:", "GitHub Actions, Git, AWS CodeDeploy, Jira"],
-    ["Observability & Reliability:", "Prometheus, CloudWatch, EFK, Alerting, Incident Response, Runbooks"],
-    ["Security:", "Amazon Inspector, IAM, Container Security, Vulnerability Management"],
-    ["AI-Assisted Engineering:", "Claude Code, Agentic AI Workflows, Prompt Engineering"],
+    ["CI/CD & Delivery:", "GitHub Actions, Git, AWS CodeDeploy"],
+    ["Observability & Reliability:", "Prometheus, CloudWatch, Alerting, Incident Response, Runbooks"],
+    ["Security:", "Least-Privilege IAM, Pre-Merge Secret Detection, VPC Network Segmentation"],
+    ["AI-Assisted Engineering:", "Claude Code, Agentic AI Workflows, Prompt Engineering, Jira"],
     ["Scripting:", "Python, Bash"],
 ]
 skill_rows = [[Paragraph(k, skills_label_style), Paragraph(v, body_style)] for k, v in skills_data]
@@ -136,9 +135,9 @@ story.append(skills_table)
 
 story.append(Paragraph("EDUCATION & CERTIFICATIONS", section_style))
 cert_lines = [
+    "HashiCorp Certified: Terraform Associate (004) — 2026",
     "CKA — Certified Kubernetes Administrator — 2024",
     "CKAD — Certified Kubernetes Application Developer — 2023",
-    "HashiCorp Certified: Terraform Associate (004) — 2026",
     "Master's Degree in Social Work | Ion Creangă State Pedagogical University, Chisinau — 2014",
 ]
 for c in cert_lines:
