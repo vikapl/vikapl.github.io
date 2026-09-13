@@ -90,10 +90,10 @@ story.append(Paragraph("EXPERIENCE", section_style))
 story.append(Paragraph("DevOps Engineer &nbsp;|&nbsp; Hyatt Hotels Corporation &nbsp;|&nbsp; Remote", role_style))
 story.append(Paragraph("Jan 2024 — Present", company_style))
 hyatt_bullets = [
-    "Scaled EKS infrastructure from 250 to 600 pods (8 to 24 nodes) during peak promotions with zero manual intervention, holding sub-second API latency throughout.",
-    "Redesigned Prometheus and CloudWatch alerting around customer-facing symptoms and service-specific runbooks, cutting incident resolution time from 50 to 18 minutes (-64%).",
-    "Introduced a Claude Code PR-review agent across 30 repositories that validates Jira requirements and flags exposed secrets before merge, giving every repo automated first-pass review coverage without a platform engineer manually maintaining it.",
-    "Personal project: engineered an AI-assisted EKS remediation pipeline (EventBridge, Lambda, Terraform) that diagnoses CloudWatch/Prometheus alerts and, for a narrow policy-gated allow-list, triggers recovery actions like pod restarts and capped node scaling; validated end-to-end against real alarm fixtures, not yet deployed to a live cluster.",
+    "Scaled EKS workloads 2x+ during peak promotions, growing from 250 to 600 pods with zero manual intervention and no downtime.",
+    "Redesigned Prometheus and CloudWatch alerting around customer-facing symptoms, SLA/SLO thresholds, and service-specific runbooks, cutting MTTR from 50 to 18 minutes by reducing time spent diagnosing incidents.",
+    "Introduced a Claude Code PR-review agent across 30 repositories that validates Jira requirements and flags exposed secrets before merge, giving every repo automated review coverage without a platform engineer in the loop.",
+    "Engineered an AI-assisted EKS remediation pipeline using EventBridge, Lambda, and Terraform to diagnose CloudWatch and Prometheus alerts and trigger policy-gated recovery actions, including pod restarts and capped node scaling.",
     "Standardized GitOps delivery for 18 microservices with GitHub Actions and ArgoCD, automating builds, security checks, Helm deployments, and canary/blue-green releases.",
     "Replaced all-at-once Lambda releases with gated canary deployments using CodeDeploy and CloudWatch, automatically rolling back releases when error rates increased.",
 ]
@@ -106,7 +106,7 @@ story.append(Paragraph("May 2021 — Jan 2024", company_style))
 hellofresh_bullets = [
     "Standardized infrastructure provisioning across 10 AWS environments with reusable Terraform and CloudFormation modules, replacing manual console setup and cutting the “works in staging, breaks in prod” drift that came with it.",
     "Locked down cross-environment access for 25 developers with least-privilege IAM and VPC-segmented networking (subnets, NACLs, bastion hosts), shrinking the blast radius of any compromised credential.",
-    "Supported migration of interruption-tolerant workloads to EC2 Spot Instances as part of a broader cost optimization effort, cutting compute spend while keeping critical workloads on stable capacity.",
+    "Right-sized compute and migrated interruption-tolerant workloads to EC2 Spot Instances as part of a broader cost optimization effort, cutting compute spend while keeping critical workloads on stable capacity.",
     "Scheduled non-production resources to shut down outside business hours, eliminating idle overnight and weekend compute spend.",
 ]
 for b in hellofresh_bullets:
@@ -117,7 +117,7 @@ skills_data = [
     ["Cloud & Infrastructure:", "AWS, EKS, Lambda, EventBridge, VPC, IAM, Terraform, CloudFormation"],
     ["Kubernetes & GitOps:", "Kubernetes, ArgoCD, Helm, Docker"],
     ["CI/CD & Delivery:", "GitHub Actions, Git, AWS CodeDeploy"],
-    ["Observability & Reliability:", "Prometheus, CloudWatch, Alerting, Incident Response, Runbooks"],
+    ["Observability & Reliability:", "Prometheus, CloudWatch, Alerting, Incident Response, Runbooks, SLA/SLO Management"],
     ["Security:", "Least-Privilege IAM, Pre-Merge Secret Detection, VPC Network Segmentation"],
     ["AI-Assisted Engineering:", "Claude Code, Agentic AI Workflows, Prompt Engineering, Jira"],
     ["Scripting:", "Python, Bash"],
