@@ -45,7 +45,7 @@
 <section id="work">
   <div class="section-head">
     <h2>Selected Work</h2>
-    <div class="section-kicker">Three areas I work in production</div>
+    <div class="section-kicker">Four areas I work in production</div>
   </div>
 
   <!-- Area 1: Production Kubernetes & GitOps -->
@@ -163,6 +163,46 @@
     </figure>
     <div class="card-tags">
       <span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">Runbooks</span><span class="tag">Incident Response</span>
+    </div>
+  </article>
+
+  <!-- Area 4: ML Prediction Service Canary -->
+  <article class="card">
+    <div class="card-head">
+      <span class="tag tag-accent">Production</span>
+      <span class="card-metric">10% traffic · 15-min window</span>
+    </div>
+    <h3>Canary Releases for ML Predictions</h3>
+    <p>
+      A Lambda function serving predictions from a SageMaker model — built with a data science team, reading and writing through Redshift on both ends — was shipping single-cutover: a new version took 100% of production traffic immediately, and a bad model meant someone manually redeploying the previous one to recover. My piece of that pipeline was the release path. AWS CodeDeploy now routes 10% of traffic to a new version for a 15-minute canary window while CloudWatch Alarms watch error rate and p95 latency; a 0.5% error-rate breach during that window auto-aborts the deployment and rolls back to the previous version, no manual intervention required. It's the same canary standard the platform team already ran elsewhere, applied here. The team ships prediction-service updates during regular business hours now, instead of avoiding risky release windows.
+    </p>
+    <figure>
+      <svg viewBox="0 0 960 140" role="img" aria-label="A new Lambda and SageMaker model version receives ten percent of traffic for a fifteen minute canary window. CloudWatch alarms watch error rate and p95 latency against a zero point five percent error threshold. A breach automatically aborts the deployment and rolls back to the previous version with no manual step.">
+        <defs>
+          <marker id="arrow6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
+          </marker>
+        </defs>
+        <rect x="10" y="38" width="190" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="105" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">New Lambda / SageMaker version</text>
+        <text x="105" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">10% of traffic</text>
+        <rect x="220" y="36" width="230" height="68" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="335" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">CodeDeploy canary window</text>
+        <text x="335" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">15 minutes, CloudWatch watching</text>
+        <rect x="470" y="38" width="200" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="570" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Error rate + p95 latency</text>
+        <text x="570" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">against a 0.5% threshold</text>
+        <rect x="690" y="36" width="260" height="68" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
+        <text x="820" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">Breach → auto-rollback</text>
+        <text x="820" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">100% traffic restored, no manual step</text>
+        <line x1="200" y1="70" x2="216" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow6)"></line>
+        <line x1="450" y1="70" x2="466" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow6)"></line>
+        <line x1="670" y1="70" x2="686" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow6)"></line>
+      </svg>
+      <figcaption>If the window clears clean, the release proceeds to 100% — no one has to be watching a dashboard</figcaption>
+    </figure>
+    <div class="card-tags">
+      <span class="tag">AWS CodeDeploy</span><span class="tag">CloudWatch</span><span class="tag">Lambda</span>
     </div>
   </article>
 </section>
