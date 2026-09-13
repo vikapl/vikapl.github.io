@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vika Plamadeala — DevOps Engineer</title>
-<meta name="description" content="DevOps Engineer with 4+ years running production Kubernetes on AWS — canary deployments, an AI-assisted PR review agent, and policy-gated incident remediation.">
+<meta name="description" content="DevOps Engineer with 5+ years running production Kubernetes on AWS — GitOps delivery for an 18-microservice platform, an AI-assisted PR review agent, and symptom-based alerting that cut MTTR 64%.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
@@ -45,59 +45,55 @@
 <section id="work">
   <div class="section-head">
     <h2>Selected Work</h2>
-    <div class="section-kicker">Three projects, in depth</div>
+    <div class="section-kicker">Three areas I own in production</div>
   </div>
 
-  <!-- Project 1: Canary release -->
+  <!-- Area 1: Production Kubernetes & GitOps -->
   <article class="card">
     <div class="card-head">
       <span class="tag tag-accent">Hyatt Hotels Corporation · Production</span>
-      <span class="card-metric">10% traffic · 15-min window</span>
+      <span class="card-metric">18 microservices · 250→600 pods</span>
     </div>
-    <h3>A canary release that catches its own mistakes</h3>
+    <h3>Production Kubernetes &amp; GitOps</h3>
     <p>
-      Hyatt's Lambda-based prediction service — a SageMaker model reading and writing through Redshift — shipped all at once: a new version took 100% of production traffic immediately, so a bad release became a full incident before anyone noticed. I configured AWS CodeDeploy to hold new versions to 10% of traffic for a 15-minute canary window, with CloudWatch alarms watching error rate and p95 latency; a 0.5% error-rate breach aborts the deployment automatically and shifts traffic back to the previous version — no one has to be watching a dashboard and deciding by hand. It was the platform team's established standard across their services, which I applied here.
+      EKS platform supporting an 18-microservice, consumer-facing booking platform. Every change moves through the same path — Terraform for the infrastructure, GitHub Actions for build and security checks, ArgoCD and Helm for the sync and deploy — landing as a canary or blue-green release instead of an all-at-once push. That pipeline scaled the platform from 250 to 600 pods (8 to 24 nodes) during peak promotions without anyone touching a dial.
     </p>
     <figure>
-      <svg viewBox="0 0 860 260" role="img" aria-label="A new release holds at ten percent of traffic under CodeDeploy for a fifteen minute canary window while CloudWatch watches error rate and p95 latency. If it holds within a half a percent error threshold, traffic shifts to one hundred percent. If it breaches that threshold, the release rolls back automatically and alerts on-call.">
+      <svg viewBox="0 0 960 140" role="img" aria-label="A git commit triggers GitHub Actions to build, test, and run security checks, which hands off to ArgoCD and Helm to sync and deploy, landing on EKS as a canary or blue-green release across eighteen microservices.">
         <defs>
-          <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="arrow4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
           </marker>
         </defs>
-        <rect x="10" y="97" width="170" height="56" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="95" y="129" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">New version deployed</text>
-        <rect x="210" y="97" width="180" height="56" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="300" y="119" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">CodeDeploy</text>
-        <text x="300" y="135" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">10% · 15-min window</text>
-        <rect x="410" y="95" width="180" height="60" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
-        <text x="500" y="119" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">CloudWatch</text>
-        <text x="500" y="135" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">error rate + p95 latency</text>
-        <rect x="620" y="27" width="220" height="56" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="730" y="49" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Holds within threshold</text>
-        <text x="730" y="65" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#6b6154">→ shifts to 100% traffic</text>
-        <rect x="620" y="175" width="220" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="730" y="199" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">&gt;0.5% errors</text>
-        <text x="730" y="215" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#6b6154">→ auto-rollback + alert</text>
-        <line x1="180" y1="125" x2="206" y2="125" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow1)"></line>
-        <line x1="390" y1="125" x2="406" y2="125" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow1)"></line>
-        <line x1="590" y1="115" x2="616" y2="60" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow1)"></line>
-        <line x1="590" y1="140" x2="616" y2="200" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow1)"></line>
+        <rect x="10" y="40" width="130" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="75" y="74" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Git commit</text>
+        <rect x="160" y="38" width="230" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="275" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">GitHub Actions</text>
+        <text x="275" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">build, test, security checks</text>
+        <rect x="410" y="38" width="230" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="525" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">ArgoCD + Helm</text>
+        <text x="525" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">sync &amp; deploy</text>
+        <rect x="660" y="36" width="290" height="68" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
+        <text x="805" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">EKS · 18 microservices</text>
+        <text x="805" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">canary / blue-green release</text>
+        <line x1="140" y1="70" x2="156" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow4)"></line>
+        <line x1="390" y1="70" x2="406" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow4)"></line>
+        <line x1="640" y1="70" x2="656" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow4)"></line>
       </svg>
-      <figcaption>How a bad release rolls itself back before it reaches everyone</figcaption>
+      <figcaption>Every change rides the same GitOps path from commit to a canary or blue-green release</figcaption>
     </figure>
     <div class="card-tags">
-      <span class="tag">CodeDeploy</span><span class="tag">CloudWatch</span><span class="tag">Lambda</span>
+      <span class="tag">Terraform</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">EKS</span>
     </div>
   </article>
 
-  <!-- Project 2: AI PR-review agent -->
+  <!-- Area 2: AI PR-review agent -->
   <article class="card">
     <div class="card-head">
       <span class="tag tag-accent">Hyatt Hotels Corporation · Production</span>
       <span class="card-metric">30 repos · advisory</span>
     </div>
-    <h3>A reviewer that reads the ticket, not just the diff</h3>
+    <h3>AI-Assisted DevOps Automation</h3>
     <p>
       As the team adopted Claude Code, AI-generated code volume went up and human PR review became the bottleneck. I customized Anthropic's official Claude Code GitHub Action into a review agent running across 30 repositories and two product teams plus the platform team: triggered when a PR opens, it pulls the linked Jira ticket, compares what was asked against what was delivered, and flags exposed secrets — with per-repo tuned prompts for infrastructure versus application code. It's advisory, not a blocking check, on purpose: a non-deterministic reviewer as a required gate stops people on false positives until someone switches it off. Advisory means it has to earn its place — and it's caught real requirement gaps and exposed secrets before merge.
     </p>
@@ -130,45 +126,43 @@
     </div>
   </article>
 
-  <!-- Project 3: eks-ai-remediation -->
+  <!-- Area 3: Reliability & Observability -->
   <article class="card">
     <div class="card-head">
-      <span class="tag tag-secondary">Personal project · built &amp; tested, not deployed</span>
+      <span class="tag tag-accent">Hyatt Hotels Corporation · Production</span>
+      <span class="card-metric">50 → 18 min · -64% MTTR</span>
     </div>
-    <h3>Teaching an incident responder where to stop</h3>
+    <h3>Reliability &amp; Observability</h3>
     <p>
-      Watching alerts fire is one problem. Deciding what's safe to fix without asking first is a different, harder one. I built an EventBridge + Lambda pipeline that diagnoses a CloudWatch/EKS incident and checks it against two independent gates — an account-wide switch that's off by default, and a per-incident-type allow-list that deliberately never includes anything ambiguous. Only two actions are ever automatable: a rollout restart, or a one-node nodegroup bump capped at its own maximum size. Everything else — and every decision either way — gets posted to Slack. I've validated it end-to-end against three real CloudWatch alarm fixtures; the Terraform is written but not applied, and it hasn't touched a live cluster yet, which I'd rather say plainly than let the writeup imply otherwise.
+      Redesigned Prometheus and CloudWatch alerting around customer-facing symptoms — a checkout timing out, an API breaching its latency SLO — instead of raw infrastructure thresholds, with each alert linked to a service-specific runbook. That shift cut mean time to resolution from 50 minutes to 18 (-64%), because on-call opens an alert already knowing what's broken and where to look, instead of triaging from a raw metric first.
     </p>
     <figure>
-      <svg viewBox="0 0 920 280" role="img" aria-label="A CloudWatch or EKS alarm triggers an EventBridge rule that invokes a Lambda function to diagnose the incident. If the fix is on a narrow allow-list and the account-wide switch is on, it restarts a pod or scales a node group up to a capped maximum. Anything else is posted to Slack for a human to approve.">
+      <svg viewBox="0 0 960 140" role="img" aria-label="A customer-facing symptom, such as a checkout latency spike, triggers a Prometheus or CloudWatch alert built around that symptom rather than a raw threshold. The alert is linked to a service-specific runbook, and on-call resolves the incident in 18 minutes instead of 50, a 64 percent reduction.">
         <defs>
-          <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="arrow5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
           </marker>
         </defs>
-        <rect x="15" y="112" width="190" height="56" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="110" y="134" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">CloudWatch / EKS</text>
-        <text x="110" y="150" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">alarm fires</text>
-        <rect x="255" y="112" width="170" height="56" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="340" y="144" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">EventBridge rule</text>
-        <rect x="450" y="110" width="190" height="60" rx="10" fill="#ffffff" stroke="#7a4a2c" stroke-width="2"></rect>
-        <text x="545" y="134" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#7a4a2c">Lambda</text>
-        <text x="545" y="150" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">diagnoses + checks gates</text>
-        <rect x="670" y="35" width="240" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="790" y="59" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Both gates pass</text>
-        <text x="790" y="75" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#6b6154">→ restart pod / capped scale-up</text>
-        <rect x="670" y="193" width="240" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="790" y="219" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Anything else</text>
-        <text x="790" y="235" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#6b6154">→ Slack, human approves</text>
-        <line x1="205" y1="140" x2="251" y2="140" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow2)"></line>
-        <line x1="429" y1="140" x2="446" y2="140" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow2)"></line>
-        <line x1="644" y1="128" x2="666" y2="65" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow2)"></line>
-        <line x1="644" y1="152" x2="666" y2="225" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow2)"></line>
+        <rect x="10" y="38" width="190" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="105" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Customer-facing symptom</text>
+        <text x="105" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">e.g. checkout latency spike</text>
+        <rect x="220" y="36" width="230" height="68" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="335" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Prometheus + CloudWatch</text>
+        <text x="335" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">symptom-based alert</text>
+        <rect x="470" y="38" width="200" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
+        <text x="570" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Linked runbook</text>
+        <text x="570" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">service-specific</text>
+        <rect x="690" y="36" width="260" height="68" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
+        <text x="820" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">On-call resolves</text>
+        <text x="820" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">50 → 18 min (-64%)</text>
+        <line x1="200" y1="70" x2="216" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow5)"></line>
+        <line x1="450" y1="70" x2="466" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow5)"></line>
+        <line x1="670" y1="70" x2="686" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow5)"></line>
       </svg>
-      <figcaption>Two gates — an on/off switch plus an allow-list — decide what it's ever allowed to touch</figcaption>
+      <figcaption>Symptom-based alerts point straight at a runbook instead of a raw graph</figcaption>
     </figure>
     <div class="card-tags">
-      <span class="tag">EventBridge</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span><span class="tag">Kubernetes</span><span class="tag">Policy-gated automation</span>
+      <span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">Runbooks</span><span class="tag">Incident Response</span>
     </div>
   </article>
 </section>
@@ -213,7 +207,7 @@
         <div class="exp-dates">Jan 2024 — Present</div>
       </div>
       <p>
-        Scaled EKS infrastructure from 250 to 600 pods (8 to 24 nodes) during peak promotions with zero manual intervention, holding sub-second API latency throughout. Redesigned Prometheus and CloudWatch alerts around customer-facing symptoms instead of raw thresholds, cutting incident resolution time from 50 minutes to 18 (-64%). The canary-release and AI PR-review work on this team is its own story above — see Selected Work.
+        Scaled EKS infrastructure from 250 to 600 pods (8 to 24 nodes) during peak promotions with zero manual intervention, holding sub-second API latency throughout. Standardized GitOps delivery for 18 microservices and introduced a Claude Code PR-review agent across 30 repositories — both are their own stories above, see Selected Work. Also replaced all-at-once Lambda releases with gated canary deployments using CodeDeploy and CloudWatch, automatically rolling back releases when error rates increased.
       </p>
     </div>
     <div class="exp-row">
