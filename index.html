@@ -27,7 +27,7 @@
     <h1>Vika<br><em>Plamadeala</em></h1>
     <div class="hero-keywords">AWS &nbsp;·&nbsp; Kubernetes &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; Agentic AI Workflows</div>
     <p class="hero-intro">
-      I'm a DevOps engineer with more than five years running AWS and production Kubernetes for consumer-facing apps, including an EKS platform that scales to 600 pods at peak, with alerting built around what customers feel. I use Claude Code for day-to-day engineering work. I've built reusable agent skills my team uses, a PR reviewer across 30 repositories, and a policy-gated EKS remediation pipeline.
+      I'm a DevOps engineer with more than five years running AWS and production Kubernetes for consumer-facing products. I care about releases that roll themselves back, alerts that describe what customers actually feel, and AI agents that work inside clear guardrails.
     </p>
     <div class="hero-actions">
       <a href="mailto:vika_plamadeala@yahoo.com" class="btn btn-primary">Email me</a>
@@ -112,7 +112,7 @@
     </div>
     <h3>Production Kubernetes &amp; GitOps</h3>
     <p>
-      The EKS platform behind an 18-microservice booking product. Every change follows one path: Terraform for infrastructure, GitHub Actions for build and security checks, then ArgoCD and Helm to deploy as a canary or blue-green release. During peak promotions it scaled from 250 to 600 pods (8 to 24 nodes) on its own.
+      Every change follows one path: Terraform for infrastructure, GitHub Actions for build and security checks, then ArgoCD and Helm to deploy as a canary or blue-green release. Peak promotions scale the cluster up and back down with no one touching it.
     </p>
     <ol class="flow">
       <li><div class="flow-title">Git commit</div><div class="flow-sub">infra or app change</div></li>
@@ -133,7 +133,7 @@
     </div>
     <h3>AI-Assisted DevOps Automation</h3>
     <p>
-      As the team adopted Claude Code, human PR review became the bottleneck. I customized Anthropic's Claude Code GitHub Action into a review agent running across 30 repositories. On every PR it checks the change against the linked Jira ticket and flags exposed secrets, with separate prompts for infrastructure and application code. It's advisory by design, so a false positive never blocks a merge, and it has caught real requirement gaps and exposed secrets.
+      As the team adopted Claude Code, human PR review became the bottleneck. I customized Anthropic's Claude Code GitHub Action into a review agent that runs on every PR. It checks the change against the linked Jira ticket and flags exposed secrets, with separate prompts for infrastructure and application code. It's advisory by design, so a false positive never blocks a merge, and it has caught real requirement gaps and exposed secrets.
     </p>
     <ol class="flow">
       <li><div class="flow-title">PR opened</div><div class="flow-sub">any of 30 repos</div></li>
@@ -154,7 +154,7 @@
     </div>
     <h3>Reliability &amp; Observability</h3>
     <p>
-      Rebuilt Prometheus and CloudWatch alerting around what customers feel, like a checkout timing out or an API breaching its latency SLO, instead of raw infrastructure thresholds. Each alert links to a service-specific runbook, so on-call starts already knowing what's broken. Mean time to resolution dropped from 50 minutes to 18.
+      Rebuilt Prometheus and CloudWatch alerting around what customers feel, like a checkout timing out or an API breaching its latency SLO, instead of raw infrastructure thresholds. Each alert links to a service-specific runbook, so on-call starts already knowing what's broken and where to look.
     </p>
     <ol class="flow">
       <li><div class="flow-title">Customer symptom</div><div class="flow-sub">e.g. checkout latency spike</div></li>
