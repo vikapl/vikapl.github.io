@@ -14,6 +14,7 @@
 <nav class="nav">
   <div class="nav-logo">Vika Plamadeala</div>
   <div class="nav-links">
+    <a href="#about">About</a>
     <a href="#work">Work</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
@@ -42,6 +43,41 @@
   </div>
 </header>
 
+<section id="about">
+  <h2 style="margin-bottom:20px;">About</h2>
+  <p class="about-text">I'm a DevOps engineer with more than five years running AWS and production Kubernetes for consumer-facing apps, including an EKS platform that scales to 600 pods at peak, with alerting built around what customers feel. I use Claude Code for day-to-day engineering work. I've built reusable agent skills my team uses, a PR reviewer across 30 repositories, and a policy-gated EKS remediation pipeline.</p>
+</section>
+
+<section id="skills">
+  <h2 style="margin-bottom:32px;">Skills &amp; Stack</h2>
+  <div class="skills-grid">
+    <div class="skills-col">
+      <div class="skills-label">Cloud &amp; IaC</div>
+      <div class="skills-tags">
+        <span class="tag">AWS</span><span class="tag">EKS</span><span class="tag">Terraform</span><span class="tag">CloudFormation</span><span class="tag">Lambda</span><span class="tag">IAM</span><span class="tag">Python</span><span class="tag">Bash</span>
+      </div>
+    </div>
+    <div class="skills-col">
+      <div class="skills-label">Kubernetes &amp; GitOps</div>
+      <div class="skills-tags">
+        <span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">Docker</span>
+      </div>
+    </div>
+    <div class="skills-col">
+      <div class="skills-label">AI-Assisted Engineering</div>
+      <div class="skills-tags">
+        <span class="tag">Claude Code</span><span class="tag">Agentic Workflows</span><span class="tag">Reusable Agent Skills</span>
+      </div>
+    </div>
+    <div class="skills-col">
+      <div class="skills-label">CI/CD, Observability &amp; Security</div>
+      <div class="skills-tags">
+        <span class="tag">GitHub Actions</span><span class="tag">CodeDeploy</span><span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">EFK</span><span class="tag">Amazon Inspector</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="section-head">
     <h2>Selected Work</h2>
@@ -56,32 +92,14 @@
     </div>
     <h3>Production Kubernetes &amp; GitOps</h3>
     <p>
-      EKS platform supporting an 18-microservice, consumer-facing booking platform. Every change moves through the same path — Terraform for the infrastructure, GitHub Actions for build and security checks, ArgoCD and Helm for the sync and deploy — landing as a canary or blue-green release instead of an all-at-once push. That pipeline scaled the platform from 250 to 600 pods (8 to 24 nodes) during peak promotions without anyone touching a dial.
+      The EKS platform behind an 18-microservice booking product. Every change follows one path: Terraform for infrastructure, GitHub Actions for build and security checks, then ArgoCD and Helm to deploy as a canary or blue-green release. During peak promotions it scaled from 250 to 600 pods (8 to 24 nodes) on its own.
     </p>
-    <figure>
-      <svg viewBox="0 0 960 140" role="img" aria-label="A git commit triggers GitHub Actions to build, test, and run security checks, which hands off to ArgoCD and Helm to sync and deploy, landing on EKS as a canary or blue-green release across eighteen microservices.">
-        <defs>
-          <marker id="arrow4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
-          </marker>
-        </defs>
-        <rect x="10" y="40" width="130" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="75" y="74" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Git commit</text>
-        <rect x="160" y="38" width="230" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="275" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">GitHub Actions</text>
-        <text x="275" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">build, test, security checks</text>
-        <rect x="410" y="38" width="230" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="525" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">ArgoCD + Helm</text>
-        <text x="525" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">sync &amp; deploy</text>
-        <rect x="660" y="36" width="290" height="68" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
-        <text x="805" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">EKS · 18 microservices</text>
-        <text x="805" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">canary / blue-green release</text>
-        <line x1="140" y1="70" x2="156" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow4)"></line>
-        <line x1="390" y1="70" x2="406" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow4)"></line>
-        <line x1="640" y1="70" x2="656" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow4)"></line>
-      </svg>
-      <figcaption>Every change rides the same GitOps path from commit to a canary or blue-green release</figcaption>
-    </figure>
+    <ol class="flow">
+      <li><div class="flow-title">Git commit</div><div class="flow-sub">infra or app change</div></li>
+      <li><div class="flow-title">GitHub Actions</div><div class="flow-sub">build · test · security scan</div></li>
+      <li><div class="flow-title">ArgoCD + Helm</div><div class="flow-sub">sync &amp; deploy</div></li>
+      <li class="is-key"><div class="flow-title">EKS</div><div class="flow-sub">canary / blue-green release</div></li>
+    </ol>
     <div class="card-tags">
       <span class="tag">Terraform</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">EKS</span>
     </div>
@@ -95,32 +113,14 @@
     </div>
     <h3>AI-Assisted DevOps Automation</h3>
     <p>
-      As the team adopted Claude Code, AI-generated code volume went up and human PR review became the bottleneck. I customized Anthropic's official Claude Code GitHub Action into a review agent running across 30 repositories and two product teams plus the platform team: triggered when a PR opens, it pulls the linked Jira ticket, compares what was asked against what was delivered, and flags exposed secrets — with per-repo tuned prompts for infrastructure versus application code. It's advisory, not a blocking check, on purpose: a non-deterministic reviewer as a required gate stops people on false positives until someone switches it off. Advisory means it has to earn its place — and it's caught real requirement gaps and exposed secrets before merge.
+      As the team adopted Claude Code, human PR review became the bottleneck. I customized Anthropic's Claude Code GitHub Action into a review agent running across 30 repositories. On every PR it checks the change against the linked Jira ticket and flags exposed secrets, with separate prompts for infrastructure and application code. It's advisory by design, so a false positive never blocks a merge, and it has caught real requirement gaps and exposed secrets.
     </p>
-    <figure>
-      <svg viewBox="0 0 960 140" role="img" aria-label="A pull request opens, GitHub Actions triggers a Claude Code review agent, which checks the diff against its linked Jira ticket and scans for exposed secrets, then posts an advisory comment on the pull request without blocking the merge.">
-        <defs>
-          <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
-          </marker>
-        </defs>
-        <rect x="10" y="40" width="130" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="75" y="74" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">PR opened</text>
-        <rect x="160" y="40" width="220" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="270" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">GitHub Actions</text>
-        <text x="270" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">triggers Claude Code</text>
-        <rect x="400" y="38" width="260" height="64" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
-        <text x="530" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">Checks diff vs</text>
-        <text x="530" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">Jira ticket + secrets</text>
-        <rect x="680" y="40" width="260" height="60" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="810" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Posts PR comment</text>
-        <text x="810" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#6b6154">advisory — doesn't block</text>
-        <line x1="140" y1="70" x2="156" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow3)"></line>
-        <line x1="380" y1="70" x2="396" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow3)"></line>
-        <line x1="660" y1="70" x2="676" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow3)"></line>
-      </svg>
-      <figcaption>Reviews every PR against its Jira ticket — advisory, never blocks a merge</figcaption>
-    </figure>
+    <ol class="flow">
+      <li><div class="flow-title">PR opened</div><div class="flow-sub">any of 30 repos</div></li>
+      <li><div class="flow-title">GitHub Actions</div><div class="flow-sub">runs Claude Code</div></li>
+      <li><div class="flow-title">Agent review</div><div class="flow-sub">diff vs Jira ticket · secrets</div></li>
+      <li class="is-key"><div class="flow-title">PR comment</div><div class="flow-sub">advisory, never blocks</div></li>
+    </ol>
     <div class="card-tags">
       <span class="tag">Claude Code</span><span class="tag">GitHub Actions</span><span class="tag">Jira</span>
     </div>
@@ -134,33 +134,14 @@
     </div>
     <h3>Reliability &amp; Observability</h3>
     <p>
-      Redesigned Prometheus and CloudWatch alerting around customer-facing symptoms — a checkout timing out, an API breaching its latency SLO — instead of raw infrastructure thresholds, with each alert linked to a service-specific runbook. That shift cut mean time to resolution from 50 minutes to 18 (-64%), because on-call opens an alert already knowing what's broken and where to look, instead of triaging from a raw metric first.
+      Rebuilt Prometheus and CloudWatch alerting around what customers feel, like a checkout timing out or an API breaching its latency SLO, instead of raw infrastructure thresholds. Each alert links to a service-specific runbook, so on-call starts already knowing what's broken. Mean time to resolution dropped from 50 minutes to 18.
     </p>
-    <figure>
-      <svg viewBox="0 0 960 140" role="img" aria-label="A customer-facing symptom, such as a checkout latency spike, triggers a Prometheus or CloudWatch alert built around that symptom rather than a raw threshold. The alert is linked to a service-specific runbook, and on-call resolves the incident in 18 minutes instead of 50, a 64 percent reduction.">
-        <defs>
-          <marker id="arrow5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
-          </marker>
-        </defs>
-        <rect x="10" y="38" width="190" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="105" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Customer-facing symptom</text>
-        <text x="105" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">e.g. checkout latency spike</text>
-        <rect x="220" y="36" width="230" height="68" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="335" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Prometheus + CloudWatch</text>
-        <text x="335" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">symptom-based alert</text>
-        <rect x="470" y="38" width="200" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="570" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Linked runbook</text>
-        <text x="570" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">service-specific</text>
-        <rect x="690" y="36" width="260" height="68" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
-        <text x="820" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">On-call resolves</text>
-        <text x="820" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">50 → 18 min (-64%)</text>
-        <line x1="200" y1="70" x2="216" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow5)"></line>
-        <line x1="450" y1="70" x2="466" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow5)"></line>
-        <line x1="670" y1="70" x2="686" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow5)"></line>
-      </svg>
-      <figcaption>Symptom-based alerts point straight at a runbook instead of a raw graph</figcaption>
-    </figure>
+    <ol class="flow">
+      <li><div class="flow-title">Customer symptom</div><div class="flow-sub">e.g. checkout latency spike</div></li>
+      <li><div class="flow-title">Symptom-based alert</div><div class="flow-sub">Prometheus · CloudWatch</div></li>
+      <li><div class="flow-title">Linked runbook</div><div class="flow-sub">service-specific</div></li>
+      <li class="is-key"><div class="flow-title">Resolved</div><div class="flow-sub">50 → 18 min (−64%)</div></li>
+    </ol>
     <div class="card-tags">
       <span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">Runbooks</span><span class="tag">Incident Response</span>
     </div>
@@ -174,67 +155,18 @@
     </div>
     <h3>Canary Releases for ML Predictions</h3>
     <p>
-      A Lambda function serving predictions from a SageMaker model — built with a data science team, reading and writing through Redshift on both ends — was shipping single-cutover: a new version took 100% of production traffic immediately, and a bad model meant someone manually redeploying the previous one to recover. My piece of that pipeline was the release path. AWS CodeDeploy now routes 10% of traffic to a new version for a 15-minute canary window while CloudWatch Alarms watch error rate and p95 latency; a 0.5% error-rate breach during that window auto-aborts the deployment and rolls back to the previous version, no manual intervention required. It's the same canary standard the platform team already ran elsewhere, applied here. The team ships prediction-service updates during regular business hours now, instead of avoiding risky release windows.
+      A Lambda serving SageMaker model predictions used to ship all at once, and a bad model meant a manual redeploy. I owned the release path: CodeDeploy now sends 10% of traffic to a new version for 15 minutes while CloudWatch watches error rate and p95 latency. If errors pass 0.5%, it rolls back automatically. The team now ships model updates during business hours.
     </p>
-    <figure>
-      <svg viewBox="0 0 960 140" role="img" aria-label="A new Lambda and SageMaker model version receives ten percent of traffic for a fifteen minute canary window. CloudWatch alarms watch error rate and p95 latency against a zero point five percent error threshold. A breach automatically aborts the deployment and rolls back to the previous version with no manual step.">
-        <defs>
-          <marker id="arrow6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#8a7d64"></path>
-          </marker>
-        </defs>
-        <rect x="10" y="38" width="190" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="105" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">New Lambda / SageMaker version</text>
-        <text x="105" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">10% of traffic</text>
-        <rect x="220" y="36" width="230" height="68" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="335" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">CodeDeploy canary window</text>
-        <text x="335" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">15 minutes, CloudWatch watching</text>
-        <rect x="470" y="38" width="200" height="64" rx="10" fill="#ffffff" stroke="#e3d7bf" stroke-width="1.5"></rect>
-        <text x="570" y="64" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">Error rate + p95 latency</text>
-        <text x="570" y="80" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#2a241c">against a 0.5% threshold</text>
-        <rect x="690" y="36" width="260" height="68" rx="10" fill="#ffffff" stroke="#b5502e" stroke-width="2"></rect>
-        <text x="820" y="62" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" font-weight="600" fill="#b5502e">Breach → auto-rollback</text>
-        <text x="820" y="78" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="12" fill="#443c30">100% traffic restored, no manual step</text>
-        <line x1="200" y1="70" x2="216" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow6)"></line>
-        <line x1="450" y1="70" x2="466" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow6)"></line>
-        <line x1="670" y1="70" x2="686" y2="70" stroke="#8a7d64" stroke-width="1.5" marker-end="url(#arrow6)"></line>
-      </svg>
-      <figcaption>If the window clears clean, the release proceeds to 100% — no one has to be watching a dashboard</figcaption>
-    </figure>
+    <ol class="flow">
+      <li><div class="flow-title">New version</div><div class="flow-sub">Lambda + SageMaker model</div></li>
+      <li><div class="flow-title">Canary</div><div class="flow-sub">10% of traffic · 15 min</div></li>
+      <li><div class="flow-title">CloudWatch check</div><div class="flow-sub">error rate · p95 latency</div></li>
+      <li class="is-key"><div class="flow-title">Auto-decide</div><div class="flow-sub">pass → 100% · >0.5% errors → rollback</div></li>
+    </ol>
     <div class="card-tags">
       <span class="tag">AWS CodeDeploy</span><span class="tag">CloudWatch</span><span class="tag">Lambda</span>
     </div>
   </article>
-</section>
-
-<section id="skills">
-  <h2 style="margin-bottom:32px;">Skills &amp; Stack</h2>
-  <div class="skills-grid">
-    <div class="skills-col">
-      <div class="skills-label">Cloud &amp; IaC</div>
-      <div class="skills-tags">
-        <span class="tag">AWS</span><span class="tag">EKS</span><span class="tag">Terraform</span><span class="tag">CloudFormation</span><span class="tag">Lambda</span><span class="tag">IAM</span>
-      </div>
-    </div>
-    <div class="skills-col">
-      <div class="skills-label">Kubernetes &amp; GitOps</div>
-      <div class="skills-tags">
-        <span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">Docker</span>
-      </div>
-    </div>
-    <div class="skills-col">
-      <div class="skills-label">AI-Assisted Engineering</div>
-      <div class="skills-tags">
-        <span class="tag">Claude Code</span><span class="tag">Agentic Workflows</span><span class="tag">Python</span><span class="tag">Bash</span>
-      </div>
-    </div>
-    <div class="skills-col">
-      <div class="skills-label">CI/CD, Observability &amp; Security</div>
-      <div class="skills-tags">
-        <span class="tag">GitHub Actions</span><span class="tag">CodeDeploy</span><span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">EFK</span><span class="tag">Amazon Inspector</span>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="experience">
